@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio Project Lab</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <p class="eyebrow">PORTFOLIO PROJECT LAB</p>
+
+            <h1>Turn your skills into projects.</h1>
+
+            <p class="hero-text">
+                Create unique portfolio projects based on your interests,
+                career goals, assignments, and skills.
+            </p>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- PROJECT GENERATOR -->
+
+        <section class="generator-card">
+
+            <div class="section-heading">
+                <p class="eyebrow">STEP 1</p>
+                <h2>Tell me what you're interested in.</h2>
+                <p>
+                    You don't need professional experience. Start with what
+                    you're learning or what you want to learn.
+                </p>
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="category">
+                    What type of project do you want?
+                </label>
+
+                <select id="category">
+
+                    <option value="coding">
+                        Coding & Development
+                    </option>
+
+                    <option value="business">
+                        Business & Analytics
+                    </option>
+
+                    <option value="event">
+                        Event Planning
+                    </option>
+
+                    <option value="creative">
+                        Creative & Design
+                    </option>
+
+                    <option value="academic">
+                        Academic Project
+                    </option>
+
+                    <option value="random">
+                        Surprise Me
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="career">
+                    What career are you interested in?
+                </label>
+
+                <input
+                    type="text"
+                    id="career"
+                    placeholder="Example: Business Analyst"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="interest">
+                    What are you interested in?
+                </label>
+
+                <input
+                    type="text"
+                    id="interest"
+                    placeholder="Example: sports, music, fashion, gaming"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="skills">
+                    What skills do you want to practice?
+                </label>
+
+                <input
+                    type="text"
+                    id="skills"
+                    placeholder="Example: Excel, HTML, budgeting, marketing"
+                >
+
+            </div>
+
+
+            <div class="two-column">
+
+                <div class="form-group">
+
+                    <label for="experience">
+                        Experience level
+                    </label>
+
+                    <select id="experience">
+
+                        <option value="beginner">
+                            Beginner
+                        </option>
+
+                        <option value="some">
+                            Some Experience
+                        </option>
+
+                        <option value="intermediate">
+                            Intermediate
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="time">
+                        Time available
+                    </label>
+
+                    <select id="time">
+
+                        <option value="weekend">
+                            Weekend
+                        </option>
+
+                        <option value="week">
+                            1 Week
+                        </option>
+
+                        <option value="month">
+                            2–4 Weeks
+                        </option>
+
+                        <option value="long">
+                            1–2 Months
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="assignment">
+                    Do you already have an assignment?
+                    <span class="optional">(Optional)</span>
+                </label>
+
+                <textarea
+                    id="assignment"
+                    placeholder="Paste your assignment instructions here..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="avoid">
+                    Anything you want to avoid?
+                    <span class="optional">(Optional)</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="avoid"
+                    placeholder="Example: generic to-do lists"
+                >
+
+            </div>
+
+
+            <button
+                class="generate-button"
+                onclick="generateProject()"
+            >
+                Generate My Project
+            </button>
+
+        </section>
+
+
+        <!-- GENERATED PROJECT -->
+
+        <section
+            id="project-result"
+            class="project-result hidden"
+        >
+
+            <div class="result-header">
+
+                <div>
+                    <p class="eyebrow">YOUR PROJECT</p>
+
+                    <h2 id="project-title">
+                        Project Title
+                    </h2>
+                </div>
+
+                <span id="project-category" class="badge">
+                    Category
+                </span>
+
+            </div>
+
+
+            <p id="project-description" class="project-description"></p>
+
+
+            <div class="project-info">
+
+                <div>
+                    <span>Difficulty</span>
+                    <strong id="project-difficulty"></strong>
+                </div>
+
+                <div>
+                    <span>Estimated Time</span>
+                    <strong id="project-time"></strong>
+                </div>
+
+                <div>
+                    <span>Career Connection</span>
+                    <strong id="project-career"></strong>
+                </div>
+
+            </div>
+
+
+            <div class="result-section">
+
+                <h3>What you'll build</h3>
+
+                <ul id="build-list"></ul>
+
+            </div>
+
+
+            <div class="result-section">
+
+                <h3>Skills demonstrated</h3>
+
+                <div id="skill-list" class="skill-list"></div>
+
+            </div>
+
+
+            <div class="result-section">
+
+                <h3>How to make it portfolio-worthy</h3>
+
+                <ul id="portfolio-list"></ul>
+
+            </div>
+
+
+            <div class="result-section">
+
+                <h3>What to show on LinkedIn</h3>
+
+                <ul id="linkedin-list"></ul>
+
+            </div>
+
+
+            <div class="linkedin-preview">
+
+                <p class="eyebrow">LINKEDIN DESCRIPTION</p>
+
+                <p id="linkedin-description"></p>
+
+                <button
+                    class="copy-button"
+                    onclick="copyLinkedIn()"
+                >
+                    Copy LinkedIn Description
+                </button>
+
+            </div>
+
+
+            <div class="result-actions">
+
+                <button
+                    class="secondary-button"
+                    onclick="saveProject()"
+                >
+                    Save Project
+                </button>
+
+                <button
+                    class="secondary-button"
+                    onclick="generateProject()"
+                >
+                    Generate Another
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ASSIGNMENT TOOL -->
+
+        <section class="assignment-card">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">HAVE SCHOOLWORK?</p>
+
+                <h2>Turn an assignment into a portfolio project.</h2>
+
+                <p>
+                    Not every assignment belongs on LinkedIn.
+                    This tool helps you identify what could be expanded
+                    into something worth showing.
+                </p>
+
+            </div>
+
+
+            <div class="assignment-example">
+
+                <strong>Example</strong>
+
+                <p>
+                    "Create a webpage using HTML and CSS."
+                </p>
+
+                <p class="arrow">
+                    ↓
+                </p>
+
+                <strong>Portfolio Version</strong>
+
+                <p>
+                    "Design a responsive landing page for a fictional
+                    nonprofit and document the branding and design decisions."
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SAVED PROJECTS -->
+
+        <section class="saved-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">YOUR IDEAS</p>
+
+                <h2>Saved Projects</h2>
+
+            </div>
+
+            <div id="saved-projects">
+                <p class="empty-message">
+                    Your saved projects will appear here.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                Portfolio Project Lab
+            </p>
+
+            <p>
+                Built to help beginners turn learning into evidence of skill.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
