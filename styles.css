@@ -1,0 +1,1001 @@
+```css
+/* =========================================
+   PORTFOLIO PROJECT LAB
+   Main stylesheet
+========================================= */
+
+
+/* =========================================
+   COLOR SYSTEM
+========================================= */
+
+:root {
+    --navy: #172033;
+    --navy-light: #263452;
+
+    --blue: #3157D5;
+    --blue-dark: #2544B7;
+    --blue-light: #EEF2FF;
+
+    --yellow: #FFC857;
+    --yellow-light: #FFF8E7;
+
+    --background: #F7F8FC;
+    --white: #FFFFFF;
+
+    --text: #172033;
+    --text-light: #475467;
+    --muted: #667085;
+
+    --border: #E4E7EC;
+
+    --success: #067647;
+    --success-background: #ECFDF3;
+
+    --shadow-small:
+        0 4px 12px rgba(16, 24, 40, 0.05);
+
+    --shadow:
+        0 12px 30px rgba(16, 24, 40, 0.07);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   GENERAL
+========================================= */
+
+.container {
+    width: 90%;
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================
+   HEADER / HERO
+========================================= */
+
+.hero {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy) 0%,
+            #22345D 55%,
+            var(--blue) 100%
+        );
+
+    color: var(--white);
+
+    padding: 85px 0 95px;
+}
+
+
+/*
+   Decorative background shape
+*/
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: -120px;
+    top: -150px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 200, 87, 0.15);
+}
+
+
+.hero .container {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.eyebrow {
+    margin: 0 0 10px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: var(--blue);
+}
+
+
+.hero .eyebrow {
+    color: var(--yellow);
+}
+
+
+.hero h1 {
+    max-width: 750px;
+
+    margin: 0;
+
+    font-size: clamp(38px, 6vw, 60px);
+
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+
+.hero-text {
+    max-width: 680px;
+
+    margin: 24px 0 0;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #DCE4FF;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+main {
+    padding-bottom: 70px;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.generator-card,
+.project-result,
+.assignment-card,
+.saved-section {
+
+    margin-top: 32px;
+
+    padding: 38px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    box-shadow: var(--shadow);
+}
+
+
+.generator-card {
+    margin-top: -30px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section-heading h2 {
+
+    margin: 0;
+
+    font-size: 28px;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+}
+
+
+.section-heading p:not(.eyebrow) {
+
+    max-width: 700px;
+
+    margin-top: 12px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+    margin-top: 25px;
+}
+
+
+label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+
+.optional {
+
+    font-weight: 400;
+
+    color: var(--muted);
+}
+
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #D0D5DD;
+
+    border-radius: 11px;
+
+    background: var(--white);
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+
+    color: #98A2B3;
+}
+
+
+input:hover,
+select:hover,
+textarea:hover {
+
+    border-color: #98A2B3;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    outline: none;
+
+    border-color: var(--blue);
+
+    box-shadow:
+        0 0 0 4px rgba(49, 87, 213, 0.12);
+}
+
+
+textarea {
+
+    min-height: 125px;
+
+    resize: vertical;
+}
+
+
+/* =========================================
+   TWO COLUMN FORM
+========================================= */
+
+.two-column {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   GENERATE BUTTON
+========================================= */
+
+.generate-button {
+
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding: 16px 20px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: var(--blue);
+
+    color: var(--white);
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 6px 14px rgba(49, 87, 213, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.generate-button:hover {
+
+    background: var(--blue-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 18px rgba(49, 87, 213, 0.28);
+}
+
+
+.generate-button:active {
+
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   PROJECT RESULT
+========================================= */
+
+.hidden {
+    display: none;
+}
+
+
+.result-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+
+.result-header h2 {
+
+    margin: 0;
+
+    max-width: 700px;
+
+    font-size: 34px;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.8px;
+}
+
+
+.badge {
+
+    padding: 7px 12px;
+
+    background: var(--blue-light);
+
+    color: var(--blue-dark);
+
+    border-radius: 999px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+.project-description {
+
+    max-width: 800px;
+
+    margin-top: 20px;
+
+    color: var(--text-light);
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   PROJECT INFORMATION
+========================================= */
+
+.project-info {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 28px;
+}
+
+
+.project-info div {
+
+    padding: 18px;
+
+    background: #F8F9FC;
+
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+}
+
+
+.project-info span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: var(--muted);
+}
+
+
+.project-info strong {
+
+    font-size: 14px;
+
+    color: var(--text);
+}
+
+
+/* =========================================
+   RESULT SECTIONS
+========================================= */
+
+.result-section {
+
+    margin-top: 30px;
+
+    padding-top: 27px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.result-section h3 {
+
+    margin: 0 0 13px;
+
+    font-size: 18px;
+
+    letter-spacing: -0.2px;
+}
+
+
+.result-section ul {
+
+    margin: 0;
+
+    padding-left: 22px;
+
+    color: var(--text-light);
+}
+
+
+.result-section li {
+
+    margin-bottom: 9px;
+}
+
+
+/* =========================================
+   SKILLS
+========================================= */
+
+.skill-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.skill {
+
+    padding: 7px 11px;
+
+    background: var(--blue-light);
+
+    color: var(--blue-dark);
+
+    border-radius: 999px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   LINKEDIN PREVIEW
+========================================= */
+
+.linkedin-preview {
+
+    margin-top: 32px;
+
+    padding: 24px;
+
+    background: var(--success-background);
+
+    border: 1px solid #ABEFC6;
+
+    border-radius: 15px;
+}
+
+
+.linkedin-preview .eyebrow {
+
+    color: var(--success);
+}
+
+
+.linkedin-preview p:not(.eyebrow) {
+
+    margin-bottom: 15px;
+
+    color: #344054;
+
+    white-space: pre-line;
+}
+
+
+/* =========================================
+   COPY BUTTON
+========================================= */
+
+.copy-button {
+
+    padding: 10px 14px;
+
+    border: 1px solid #A6DDBB;
+
+    border-radius: 9px;
+
+    background: var(--white);
+
+    color: var(--success);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.copy-button:hover {
+
+    background: #F6FFFA;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   RESULT ACTIONS
+========================================= */
+
+.result-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 28px;
+}
+
+
+.secondary-button {
+
+    padding: 12px 17px;
+
+    border: 1px solid #D0D5DD;
+
+    border-radius: 10px;
+
+    background: var(--white);
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.secondary-button:hover {
+
+    background: #F8F9FC;
+
+    border-color: #98A2B3;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   ASSIGNMENT SECTION
+========================================= */
+
+.assignment-card {
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.assignment-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -40px;
+    top: -40px;
+
+    border-radius: 50%;
+
+    background: var(--yellow-light);
+}
+
+
+.assignment-example {
+
+    position: relative;
+
+    margin-top: 25px;
+
+    padding: 24px;
+
+    background: #F8F9FC;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+}
+
+
+.assignment-example strong {
+
+    font-size: 14px;
+
+    color: var(--text);
+}
+
+
+.assignment-example p {
+
+    color: var(--text-light);
+}
+
+
+.arrow {
+
+    margin: 14px 0;
+
+    text-align: center;
+
+    font-size: 25px !important;
+
+    font-weight: 800;
+
+    color: var(--blue) !important;
+}
+
+
+/* =========================================
+   SAVED PROJECTS
+========================================= */
+
+.saved-section {
+
+    margin-bottom: 40px;
+}
+
+
+.saved-project {
+
+    position: relative;
+
+    padding: 20px;
+
+    margin-top: 12px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.saved-project:hover {
+
+    border-color: #B7C3F7;
+
+    box-shadow: var(--shadow-small);
+}
+
+
+.saved-project h3 {
+
+    margin: 0;
+
+    font-size: 17px;
+}
+
+
+.saved-project p {
+
+    margin: 4px 0 13px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+.empty-message {
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    padding: 45px 0;
+
+    background: var(--navy);
+
+    color: var(--white);
+}
+
+
+footer p {
+
+    margin: 4px 0;
+}
+
+
+footer p:first-child {
+
+    font-weight: 800;
+}
+
+
+footer p:last-child {
+
+    color: #98A2B3;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 700px) {
+
+    .hero {
+
+        padding: 65px 0 80px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 40px;
+
+        letter-spacing: -1px;
+    }
+
+
+    .hero-text {
+
+        font-size: 16px;
+    }
+
+
+    .generator-card {
+
+        margin-top: -25px;
+    }
+
+
+    .generator-card,
+    .project-result,
+    .assignment-card,
+    .saved-section {
+
+        padding: 25px;
+
+        border-radius: 16px;
+    }
+
+
+    .two-column {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .project-info {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .result-header {
+
+        flex-direction: column;
+    }
+
+
+    .result-header h2 {
+
+        font-size: 28px;
+    }
+
+
+    .result-actions {
+
+        flex-direction: column;
+    }
+
+
+    .secondary-button {
+
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE DEVICES
+========================================= */
+
+@media (max-width: 420px) {
+
+    .container {
+
+        width: 92%;
+    }
+
+
+    .hero h1 {
+
+        font-size: 34px;
+    }
+
+
+    .generator-card,
+    .project-result,
+    .assignment-card,
+    .saved-section {
+
+        padding: 21px;
+    }
+
+}
+```
